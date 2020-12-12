@@ -1,11 +1,14 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using MIPT.Common;
 using MIPT.Dal;
+using Telegram.Bot;
 
 namespace MIPT.BotApi
 {
@@ -29,6 +32,7 @@ namespace MIPT.BotApi
                     var connection = context.Configuration.GetConnectionString("TimeTableDb");
                     collection.Configure<BotSettings>(context.Configuration.GetSection("BotSettings"));
                     collection.AddDbContext<TimeTableDb>((provider, builder) => builder.UseSqlServer(connection));
+                    collection.AddTransient<ITelegramBotClient>(provider => new TelegramBotClient(provider.GetService<IOptions<BotSettings>>().Value.Key));
                     collection.AddHostedService<BotService>();
                 })
                 .UseConsoleLifetime()

@@ -10,7 +10,7 @@ namespace MIPT.BotApi.Handlers
 {
     public class TablesHandler : CommandHandler
     {
-        public TablesHandler(IServiceScopeFactory factory, TelegramBotClient bot)
+        public TablesHandler(IServiceScopeFactory factory, ITelegramBotClient bot)
             : base(factory, bot, "/tables")
         {
         }
@@ -30,7 +30,7 @@ namespace MIPT.BotApi.Handlers
                 
                 foreach (var timeTable in query)
                 {
-                    response.AppendFormat("{0} {1} {2} {3}",
+                    response.AppendFormat("{0} {1} {2:t} {3:t}",
                         timeTable.GroupRef.Name,
                         timeTable.SubjectRef.Title,
                         timeTable.StartAt,

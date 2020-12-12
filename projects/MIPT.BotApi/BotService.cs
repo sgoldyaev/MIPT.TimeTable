@@ -17,13 +17,13 @@ namespace MIPT.BotApi
     public class BotService : IHostedService
     {
         private readonly IServiceScopeFactory factory;
-        private readonly TelegramBotClient bot;
+        private readonly ITelegramBotClient bot;
         private readonly CommandHandler[] handlers;
         
-        public BotService(IOptions<BotSettings> settings, IServiceScopeFactory factory)
+        public BotService(ITelegramBotClient bot, IServiceScopeFactory factory)
         {
+            this.bot = bot;
             this.factory = factory;
-            this.bot = new TelegramBotClient(settings.Value.Key);
 
             this.handlers = new CommandHandler[]
             {
@@ -36,7 +36,7 @@ namespace MIPT.BotApi
         
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            this.bot.StartReceiving();
+            this.bot.StartReceiving(allowedUpdates: null, cancellationToken);
             
             return Task.CompletedTask;
         }

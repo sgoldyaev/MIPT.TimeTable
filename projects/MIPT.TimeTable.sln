@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIPT.Common", "MIPT.Common\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIPT.Dal", "MIPT.Dal\MIPT.Dal.csproj", "{89124782-09FA-4E57-A622-59216AC4D4DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIPT.UnitTests", "MIPT.UnitTests\MIPT.UnitTests.csproj", "{FAEE0D6D-F59D-487F-BB81-B8C68D1C314C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{89124782-09FA-4E57-A622-59216AC4D4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89124782-09FA-4E57-A622-59216AC4D4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89124782-09FA-4E57-A622-59216AC4D4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEE0D6D-F59D-487F-BB81-B8C68D1C314C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEE0D6D-F59D-487F-BB81-B8C68D1C314C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEE0D6D-F59D-487F-BB81-B8C68D1C314C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEE0D6D-F59D-487F-BB81-B8C68D1C314C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
