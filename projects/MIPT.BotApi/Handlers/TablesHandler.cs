@@ -30,7 +30,7 @@ namespace MIPT.BotApi.Handlers
                 
                 foreach (var timeTable in query)
                 {
-                    response.AppendFormat("{0} {1} {2:t} {3:t}",
+                    response.AppendFormat("{0} {1} {2:t}-{3:t}",
                         timeTable.GroupRef.Name,
                         timeTable.SubjectRef.Title,
                         timeTable.StartAt,

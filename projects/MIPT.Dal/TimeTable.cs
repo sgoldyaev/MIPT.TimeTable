@@ -10,8 +10,8 @@ namespace MIPT.Dal
         public int Id { get; set; }
         public int GroupId { get; set; }
         public int SubjectId { get; set; }
-        public DateTimeOffset StartAt { get; set; }
-        public DateTimeOffset FinishAt { get; set; }
+        public DateTime StartAt { get; set; }
+        public DateTime FinishAt { get; set; }
 
         [ForeignKey("GroupId")] public Group GroupRef { get; set; }
         [ForeignKey("SubjectId")] public Subject SubjectRef { get; set; }
