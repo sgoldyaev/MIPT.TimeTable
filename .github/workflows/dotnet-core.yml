@@ -33,5 +33,4 @@ jobs:
         copy_stack_file: false
         deploy_path: /home/sgoldyaev/timetable
         stack_file_name: docker-compose.yaml
-        keep_files: 5
-        args: web
+        keep_files: 2
