@@ -17,7 +17,9 @@ namespace MIPT.BotApi.Handlers
         protected override string Response(Message message)
         {
             var response = new StringBuilder();
-            response.AppendLine("Id, Title");
+            response.AppendLine("<pre>");
+            response.AppendLine("|Id|Title|");
+            response.AppendLine("|--|-----|");
             
             using (var scope = base.Factory.CreateScope())
             using (var context = scope.ServiceProvider.GetService<TimeTableDb>())
@@ -27,10 +29,11 @@ namespace MIPT.BotApi.Handlers
                 
                 foreach (var subj in query)
                 {
-                    response.AppendFormat("#{0} {1}", subj.Id, subj.Title);
+                    response.AppendFormat("#|{0}|{1}|", subj.Id, subj.Title);
                 }
             }
 
+            response.AppendLine("</pre>");
             return response.ToString();
         }
     }
