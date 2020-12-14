@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace MIPT.BotApi.Handlers
 {
@@ -24,7 +25,7 @@ namespace MIPT.BotApi.Handlers
         public Task Handle(Message message)
         {
             if (message.Text.StartsWith(this.Command, StringComparison.InvariantCultureIgnoreCase))
-                return Bot.SendTextMessageAsync(message.Chat.Id, Response(message));
+                return Bot.SendTextMessageAsync(message.Chat.Id, Response(message), ParseMode.Markdown);
             else
                 return Task.CompletedTask;
         }

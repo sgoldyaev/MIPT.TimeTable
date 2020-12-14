@@ -18,7 +18,9 @@ namespace MIPT.BotApi.Handlers
         protected override string Response(Message message)
         {
             var response = new StringBuilder();
-            response.AppendLine("Group, Subject, Start, Finish");
+            response.AppendLine("<pre>");
+            response.AppendLine("|Group|Subject|Start|Finish|");
+            response.AppendLine("|-----|-------|-----|------|");
             
             using (var scope = base.Factory.CreateScope())
             using (var context = scope.ServiceProvider.GetService<TimeTableDb>())
@@ -30,7 +32,7 @@ namespace MIPT.BotApi.Handlers
                 
                 foreach (var timeTable in query)
                 {
-                    response.AppendFormat("{0} {1} {2:t}-{3:t}",
+                    response.AppendFormat("|{0}|{1}|{2:t}|{3:t}|",
                         timeTable.GroupRef.Name,
                         timeTable.SubjectRef.Title,
                         timeTable.StartAt,
@@ -38,6 +40,7 @@ namespace MIPT.BotApi.Handlers
                 }
             }
 
+            response.AppendLine("</pre>");
             return response.ToString();
         }
     }
