@@ -13,7 +13,7 @@ namespace MIPT.BotApi.Handlers
 
         protected override string Response(Message message)
         {
-            return "Available commands:\n" +
+            return "*Available commands:*\n" +
                    "/start - start bot\n" +
                    "/groups - list of all groups\n" +
                    "/subjects - list of all subjects\n" +
