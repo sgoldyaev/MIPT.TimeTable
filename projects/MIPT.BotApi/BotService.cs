@@ -1,14 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using MIPT.BotApi.Handlers;
-using MIPT.Common;
-using MIPT.Dal;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 
@@ -29,6 +23,8 @@ namespace MIPT.BotApi
             {
                 new StartHandler(factory, this.bot),
                 new TablesHandler(factory, this.bot),
+                new SubjectsHandler(factory, this.bot),
+                new GroupsHandler(factory, this.bot),
             };
             
             bot.OnMessage += BotOnOnMessage;
