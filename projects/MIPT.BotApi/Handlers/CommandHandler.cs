@@ -25,7 +25,7 @@ namespace MIPT.BotApi.Handlers
         public Task Handle(Message message)
         {
             if (message.Text.StartsWith(this.Command, StringComparison.InvariantCultureIgnoreCase))
-                return Bot.SendTextMessageAsync(message.Chat.Id, Response(message), ParseMode.MarkdownV2);
+                return Bot.SendTextMessageAsync(message.Chat.Id, Response(message), ParseMode.Markdown);
             else
                 return Task.CompletedTask;
         }
