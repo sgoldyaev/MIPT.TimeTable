@@ -30,7 +30,7 @@ jobs:
         ssh_private_key: ${{ secrets.SSH_PRIVATE }}
         ssh_public_key: ${{ secrets.SSH_PUBLIC }}
         deployment_mode: docker-compose
-        copy_stack_file: true
+        copy_stack_file: false
         deploy_path: /home/sgoldyaev/timetable
         stack_file_name: docker-compose.yaml
         keep_files: 5
