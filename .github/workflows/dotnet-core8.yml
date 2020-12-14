@@ -1,0 +1,25 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ topic/initProject ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.101
+    - name: Install dependencies
+      run: dotnet restore /projects/MIPT.TimeTable.sln
+    - name: Build
+      run: dotnet build /projects/MIPT.TimeTable.sln --configuration Release --no-restore
+    - name: Test
+      run: dotnet test /projects/MIPT.TimeTable.sln --no-restore --verbosity normal
