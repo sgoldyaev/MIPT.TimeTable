@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore projects/MIPT.TimeTable.sln
     - name: Build
-      run: dotnet build projects/MIPT.TimeTable.sln --configuration Release --no-restore
+      run: dotnet build projects/MIPT.TimeTable.sln --configuration Debug --no-restore
     - name: Test
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
     - name: Docker Deployment
@@ -34,6 +34,5 @@ jobs:
         deploy_path: /home/sgoldyaev/timetable
         stack_file_name: projects/docker-compose.yml
         keep_files: 2
-        args: up --build
+        args: up -d
         pull_images_first: false
-        pre_deployment_command_args: ASPNETCORE_ENVIRONMENT=Development
