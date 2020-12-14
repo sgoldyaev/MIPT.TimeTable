@@ -1,11 +1,8 @@
-create table [Group]
+create table if not exists [Group]
 (
-    Id   int identity
-        constraint Group_pk
-            primary key nonclustered,
+    Id   int identity constraint Group_pk primary key,
     Name nvarchar(128)
-)
-go
+);
 
-INSERT INTO TimeTableDb.dbo.[Group] (Name) VALUES (N'М05-13А');
-INSERT INTO TimeTableDb.dbo.[Group] (Name) VALUES (N'М05-13Б');
+INSERT INTO [Group] (Id, Name) VALUES (1, 'М05-13А');
+INSERT INTO [Group] (Id, Name) VALUES (2, 'М05-13Б');

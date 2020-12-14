@@ -5,19 +5,26 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.1"/>
-        <PackageReference Include="Telegram.Bot" Version="15.7.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.1" />
+        <PackageReference Include="Telegram.Bot" Version="15.7.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\MIPT.Common\MIPT.Common.csproj"/>
-        <ProjectReference Include="..\MIPT.Dal\MIPT.Dal.csproj"/>
+        <ProjectReference Include="..\MIPT.Common\MIPT.Common.csproj" />
+        <ProjectReference Include="..\MIPT.Dal\MIPT.Dal.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="TimeTableDb.sqlite" />
+      <Content Include="TimeTableDb.sqlite">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
     
 </Project>
