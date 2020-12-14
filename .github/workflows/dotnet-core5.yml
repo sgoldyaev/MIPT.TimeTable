@@ -2,7 +2,7 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master ]
+    branches: [ topic/initProject ]
   pull_request:
     branches: [ master ]
 
@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore MIPT.TimeTable.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build MIPT.TimeTable.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test MIPT.TimeTable.sln --no-restore --verbosity normal
