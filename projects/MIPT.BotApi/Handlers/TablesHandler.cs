@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,8 +19,6 @@ namespace MIPT.BotApi.Handlers
         protected override string Response(Message message)
         {
             var response = new StringBuilder();
-            response.AppendLine("Group|Subject|Start|Finish");
-            response.AppendLine("-----|-------|-----|------");
             
             using (var scope = base.Factory.CreateScope())
             using (var context = scope.ServiceProvider.GetService<TimeTableDb>())
@@ -27,15 +26,18 @@ namespace MIPT.BotApi.Handlers
                 var query = context.TimeTable
                     .Include(table => table.GroupRef)
                     .Include(table => table.SubjectRef)
+                    .Select(table => new
+                    {
+                        Group=table.GroupRef.Name,
+                        Subject = table.SubjectRef.Title,
+                        Start = table.StartAt,
+                        Finish = table.FinishAt,
+                    })
                     .ToArray();
                 
-                foreach (var timeTable in query)
+                foreach (var t in query)
                 {
-                    response.AppendFormat("{0}|{1}|{2:t}|{3:t}",
-                        timeTable.GroupRef.Name,
-                        timeTable.SubjectRef.Title,
-                        timeTable.StartAt,
-                        timeTable.FinishAt);
+                    response.AppendLine($"{t.Start:t}-{t.Finish:t}|{t.Group} {t.Subject} ");
                 }
             }
 

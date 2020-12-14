@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore projects/MIPT.TimeTable.sln
     - name: Build
-      run: dotnet build projects/MIPT.TimeTable.sln --configuration Release --no-restore
+      run: dotnet build projects/MIPT.TimeTable.sln --configuration Debug --no-restore
     - name: Test
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
     - name: Docker Deployment
