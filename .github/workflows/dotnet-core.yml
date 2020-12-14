@@ -23,3 +23,15 @@ jobs:
       run: dotnet build projects/MIPT.TimeTable.sln --configuration Release --no-restore
     - name: Test
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
+    - name: Docker Deployment
+      uses: wshihadeh/docker-deployment-action@v2
+      with:
+        remote_docker_host: user@myswarm.com
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        deployment_mode: docker-compose
+        copy_stack_file: true
+        deploy_path: /root/timetable
+        stack_file_name: docker-compose.yaml
+        keep_files: 5
+        args: web
