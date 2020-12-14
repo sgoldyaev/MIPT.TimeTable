@@ -29,9 +29,9 @@ jobs:
         remote_docker_host: sgoldyaev@sp.dbeliakov.ru
         ssh_private_key: ${{ secrets.SSH_PRIVATE }}
         ssh_public_key: ${{ secrets.SSH_PUBLIC }}
-        deployment_mode: docker-swarm
-        copy_stack_file: true
+        deployment_mode: docker-compose
+        copy_stack_file: false
         deploy_path: /home/sgoldyaev/timetable
-        stack_file_name: docker-compose.yml
+        stack_file_name: /home/runner/work/MIPT.TimeTable/MIPT.TimeTable/docker-compose.yml
         keep_files: 2
         args: up --build 
