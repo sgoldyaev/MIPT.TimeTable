@@ -88,7 +88,7 @@ namespace MIPT.UnitTests
             this.bot.Verify(bot =>
                     bot.SendTextMessageAsync(
                         It.Is<ChatId>(chatId => chatId.Identifier == new ChatId(99).Identifier), 
-                        It.Is<string>(response => response == "Available commands:\n" +
+                        It.Is<string>(response => response == "*Available commands:*\n" +
                             "/start - start bot\n" +
                             "/groups - list of all groups\n" +
                             "/subjects - list of all subjects\n" + 
