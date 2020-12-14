@@ -1,8 +1,8 @@
 ﻿version: '3'
 
-volumes:
-  sql_data:
-    name: ./Data
+#volumes:
+#  sql_data:
+#    name: ./Data
 
 services:
 #  db:
