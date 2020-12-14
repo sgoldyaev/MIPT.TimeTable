@@ -36,3 +36,4 @@ jobs:
         keep_files: 2
         args: up --build
         pull_images_first: false
+        pre_deployment_command_args: ASPNETCORE_ENVIRONMENT=Development
