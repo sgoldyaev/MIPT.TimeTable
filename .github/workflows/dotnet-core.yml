@@ -27,8 +27,8 @@ jobs:
       uses: wshihadeh/docker-deployment-action@v2
       with:
         remote_docker_host: user@myswarm.com
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        ssh_private_key: ${{ secrets.SSH_PRIVATE }}
+        ssh_public_key: ${{ secrets.SSH_PUBLIC }}
         deployment_mode: docker-compose
         copy_stack_file: true
         deploy_path: /root/timetable
