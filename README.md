@@ -3,7 +3,7 @@ mipt-industrial-programming lab
 
 # Телеграм бот - расписание
 
-- Приложение - tg @Mipt2020TimeTableBot
+- Приложение - https://t.me/Mipt2020TimeTableBot
 - Web - aspnetcore 5
 - Db - sqlite3
 - Unit Test - NUnit
