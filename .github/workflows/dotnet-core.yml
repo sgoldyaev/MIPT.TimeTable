@@ -31,7 +31,7 @@ jobs:
         ssh_public_key: ${{ secrets.SSH_PUBLIC }}
         deployment_mode: docker-compose
         copy_stack_file: true
-        deploy_path: /root/timetable
+        deploy_path: /root/goldiaev.se/timetable
         stack_file_name: docker-compose.yaml
         keep_files: 5
         args: web
