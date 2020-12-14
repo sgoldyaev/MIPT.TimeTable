@@ -35,3 +35,4 @@ jobs:
         stack_file_name: projects/docker-compose.yml
         keep_files: 2
         args: up --build 
+        pull_images_first: true
