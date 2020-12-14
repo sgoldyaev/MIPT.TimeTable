@@ -32,6 +32,6 @@ jobs:
         deployment_mode: docker-compose
         copy_stack_file: false
         deploy_path: /home/sgoldyaev/timetable
-        stack_file_name: /home/runner/work/MIPT.TimeTable/MIPT.TimeTable/docker-compose.yml
+        stack_file_name: projects/docker-compose.yml
         keep_files: 2
         args: up --build 
