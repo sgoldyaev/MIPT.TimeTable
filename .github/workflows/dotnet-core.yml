@@ -34,5 +34,5 @@ jobs:
         deploy_path: /home/sgoldyaev/timetable
         stack_file_name: projects/docker-compose.yml
         keep_files: 2
-        args: up -d
+        args: up --build -d
         pull_images_first: false
