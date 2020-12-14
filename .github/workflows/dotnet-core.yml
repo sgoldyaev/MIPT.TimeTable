@@ -34,4 +34,4 @@ jobs:
         deploy_path: /home/sgoldyaev/timetable
         stack_file_name: docker-compose.yaml
         keep_files: 2
-        args: my_app 
+        args: up --build 
