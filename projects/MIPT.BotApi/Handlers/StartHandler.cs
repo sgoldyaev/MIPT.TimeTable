@@ -6,7 +6,7 @@ namespace MIPT.BotApi.Handlers
 {
     public class StartHandler : CommandHandler
     {
-        public StartHandler(IServiceScopeFactory factory, TelegramBotClient bot)
+        public StartHandler(IServiceScopeFactory factory, ITelegramBotClient bot)
             : base(factory, bot, "/start")
         {
         }

@@ -1,14 +1,11 @@
-create table Subject
+create table if not exists Subject
 (
-    Id    int identity
-        constraint Subject_pk
-            primary key nonclustered,
+    Id    int identity constraint Subject_pk primary key,
     Title nvarchar(128)
-)
-go
+);
 
-INSERT INTO TimeTableDb.dbo.Subject (Title) VALUES (N'Философия');
-INSERT INTO TimeTableDb.dbo.Subject (Title) VALUES (N'Английский язык');
-INSERT INTO TimeTableDb.dbo.Subject (Title) VALUES (N'Промышленное программирование');
-INSERT INTO TimeTableDb.dbo.Subject (Title) VALUES (N'VR');
-INSERT INTO TimeTableDb.dbo.Subject (Title) VALUES (N'Нейронные сети');
+INSERT INTO Subject (Id, Title) VALUES (1, 'Философия');
+INSERT INTO Subject (Id, Title) VALUES (2, 'Английский язык');
+INSERT INTO Subject (Id, Title) VALUES (3, 'Промышленное программирование');
+INSERT INTO Subject (Id, Title) VALUES (4, 'VR');
+INSERT INTO Subject (Id, Title) VALUES (5, 'Нейронные сети');

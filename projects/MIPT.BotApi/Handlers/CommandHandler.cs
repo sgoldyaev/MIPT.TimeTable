@@ -9,10 +9,10 @@ namespace MIPT.BotApi.Handlers
     public abstract class CommandHandler
     {
         protected readonly IServiceScopeFactory Factory;
-        protected readonly TelegramBotClient Bot;
+        protected readonly ITelegramBotClient Bot;
         protected readonly string Command;
 
-        protected CommandHandler(IServiceScopeFactory factory, TelegramBotClient bot, string command)
+        protected CommandHandler(IServiceScopeFactory factory, ITelegramBotClient bot, string command)
         {
             this.Factory = factory;
             this.Bot = bot;
