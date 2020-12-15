@@ -7,8 +7,6 @@ services:
     build: 
       context: .
       dockerfile: ./MIPT.BotApi/Dockerfile
-    env_file:
-      - /home/sgoldyaev/timetable/secrets.env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5000;https://+:5001
