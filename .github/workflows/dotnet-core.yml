@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build Test and Deploy MIPT.BotWebApi
 
 on:
   push:
@@ -8,9 +8,8 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -23,6 +22,12 @@ jobs:
       run: dotnet build projects/MIPT.TimeTable.sln --configuration Debug --no-restore
     - name: Test
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: build
+    steps:
     - name: Docker Deployment
       uses: wshihadeh/docker-deployment-action@v2
       with:
