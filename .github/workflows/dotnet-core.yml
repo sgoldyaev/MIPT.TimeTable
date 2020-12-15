@@ -36,3 +36,4 @@ jobs:
         keep_files: 2
         args: up --build -d
         pull_images_first: false
+        pre_deployment_command_args: -e BotSettings:Key=${{ secrets.BOT_KEY }} 
