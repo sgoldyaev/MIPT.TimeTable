@@ -26,7 +26,7 @@ jobs:
     - name: Docker Deployment
       uses: wshihadeh/docker-deployment-action@v2
       with:
-        remote_docker_host: sgoldyaev@sp.dbeliakov.ru
+        remote_docker_host: ${{ secrets.DOCKER_HOST }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE }}
         ssh_public_key: ${{ secrets.SSH_PUBLIC }}
         deployment_mode: docker-compose
