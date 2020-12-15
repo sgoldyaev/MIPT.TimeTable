@@ -23,9 +23,6 @@ jobs:
       run: dotnet build projects/MIPT.TimeTable.sln --configuration Debug --no-restore
     - name: Test
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
-    - name: Set Bot Key
-      run: echo BotSettings:Key=${{ secrets.BOT_KEY }} > secrets.env
-    - name: Env
     - name: Docker Deployment
       uses: wshihadeh/docker-deployment-action@v2
       with:
