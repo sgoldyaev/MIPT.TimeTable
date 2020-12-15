@@ -24,7 +24,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     needs: build
     steps:
     - name: Docker Deployment
@@ -40,4 +39,4 @@ jobs:
         keep_files: 2
         args: up --build -d
         pull_images_first: false
-        pre_deployment_command_args: echo BotSettings:Key=${{ secrets.BOT_KEY }} > secrets.env
+        pre_deployment_command_args: echo BotSettings:Key=${{ secrets.BOT_KEY }} > /projects/secrets.env
