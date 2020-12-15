@@ -6,15 +6,13 @@ services:
     container_name: timetablebot
     build: 
       context: .
-      dockerfile: ./MIPT.BotApi/Dockerfile
-    env_file:
-      - secrets.env
+      dockerfile: ./MIPT.BotApi/Dockerfile    
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5000;https://+:5001
       - ASPNETCORE_HTTPS_PORT=5001
       - ConnectionStrings:TimeTableDb=Data Source=TimeTableDb.sqlite
-      - BotSettings:Key="1287360425:AAF2V27KSWS_WQaj1H2F5PDuuLPGWxcb82M"
+      - BotSettings:Key=$BOT_KEY
     expose:
       - 5000
       - 5001
