@@ -1,18 +1,9 @@
 ﻿version: '3'
 
-#volumes:
-#  sql_data:
-#    name: ./Data
-
 services:
-#  db:
-#    build:
-#      context: ./MIPT.Dal
-#    volumes:
-#      - ./MIPT.Dal/Data:/Data
-#    working_dir: /Data
-#    command: TimeTableDb.sqlite '.databases' '.shell ls'
   web:
+    image: sgoldyaev/timetablebot:latest
+    container: timetablebot
     build: 
       context: .
       dockerfile: ./MIPT.BotApi/Dockerfile
@@ -21,13 +12,10 @@ services:
       - ASPNETCORE_URLS=http://+:5000;https://+:5001
       - ASPNETCORE_HTTPS_PORT=5001
       - ConnectionStrings:TimeTableDb=Data Source=TimeTableDb.sqlite
+      - BotSettings:Key
     expose:
       - 5000
       - 5001
     ports:
       - 5000:5000
       - 5001:5001
-#    volumes:
-#    - ./MIPT.Dal/Data:/Data
-#    depends_on:
-#      - db
