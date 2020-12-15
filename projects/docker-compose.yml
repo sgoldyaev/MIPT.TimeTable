@@ -21,7 +21,6 @@ services:
       - ASPNETCORE_URLS=http://+:5000;https://+:5001
       - ASPNETCORE_HTTPS_PORT=5001
       - ConnectionStrings:TimeTableDb=Data Source=TimeTableDb.sqlite
-      - BotSettings:Key=${{ secrets.BOT_KEY }}
     expose:
       - 5000
       - 5001
