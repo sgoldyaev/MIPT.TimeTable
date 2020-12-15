@@ -3,7 +3,7 @@
 services:
   web:
     image: sgoldyaev/timetablebot:latest
-    container: timetablebot
+    container_name: timetablebot
     build: 
       context: .
       dockerfile: ./MIPT.BotApi/Dockerfile
