@@ -25,8 +25,13 @@ jobs:
       run: dotnet test projects/MIPT.TimeTable.sln --verbosity=minimal
     - name: Set Bot Key
       run: echo BotSettings:Key=${{ secrets.BOT_KEY }} > secrets.env
+    - name: Env
     - name: Docker Deployment
       uses: wshihadeh/docker-deployment-action@v2
+    - uses: secrethub/actions/env-export@v0.1.0
+      env:
+        BotSettings:Key: ${{ secrets.BOT_KEY }}
+        ConnectionStrings:TimeTableDb: "Data Source=TimeTableDb.sqlite"
       with:
         remote_docker_host: ${{ secrets.DOCKER_HOST }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE }}
